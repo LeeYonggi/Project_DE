@@ -87,6 +87,11 @@ public class Character : MonoBehaviour
         }
     }
 
+
+    /// <summary>
+    /// 캐릭터의 현재 상태를 바꾼다.
+    /// </summary>
+    /// <param name="behaviour_State">바꿀 상태</param>
     public void ChangeCurrentState(Behaviour_State behaviour_State)
     {
         if (this.behaviour_State == behaviour_State)
@@ -127,6 +132,10 @@ public class Character : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 이동할 거리를 구한다.
+    /// </summary>
+    /// <returns>이동벡터의 크기.</returns>
     public float GetMoveMagnitude()
     {
         Vector3 nextPosition = transform.position + moveVector * Time.deltaTime * statistics.Speed;
