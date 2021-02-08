@@ -14,16 +14,14 @@ public class Character : MonoBehaviour
         START_STATE,
         IDLE_STATE,
         MOVE_STATE,
-        ATTACK_STATE
+        ATTACK_STATE,
     }
 
     protected Rigidbody mRigidbody = null;
     protected Animator characterAnimator = null;
 
-    protected CharacterBaseState startState = null;
-    protected CharacterBaseState idleState = null;
-    protected CharacterBaseState moveState = null;
-    protected CharacterBaseState attackState = null;
+    protected Dictionary<Behaviour_State, CharacterBaseState> stateDic = new Dictionary<Behaviour_State, CharacterBaseState>();
+
     private CharacterStatistics statistics = null;
     private Character targetCharacter = null;
 
@@ -52,12 +50,13 @@ public class Character : MonoBehaviour
 
         mRigidbody = GetComponent<Rigidbody>();
 
-        startState = new BasicStart();
-        idleState = new BasicIdle();
-        moveState = new KnightMove();
-        attackState = new KnightAttack();
+        stateDic[Behaviour_State.START_STATE] = new BasicStart();
+        stateDic[Behaviour_State.IDLE_STATE] = new BasicIdle();
+        stateDic[Behaviour_State.MOVE_STATE] = new KnightMove();
+        stateDic[Behaviour_State.ATTACK_STATE] = new KnightAttack();
+        
 
-        startState.Start(this);
+        stateDic[Behaviour_State.START_STATE].Start(this);
     }
 
     // Update is called once per frame
@@ -69,24 +68,8 @@ public class Character : MonoBehaviour
     protected void ObjectUpdate()
     {
         CollisionUpdate();
-
-        switch (behaviour_State)
-        {
-            case Behaviour_State.START_STATE:
-                startState.Update(this);
-                break;
-            case Behaviour_State.IDLE_STATE:
-                idleState.Update(this);
-                break;
-            case Behaviour_State.MOVE_STATE:
-                moveState.Update(this);
-                break;
-            case Behaviour_State.ATTACK_STATE:
-                attackState.Update(this);
-                break;
-        }
+        stateDic[behaviour_State].Update(this);
     }
-
 
     /// <summary>
     /// 캐릭터의 현재 상태를 바꾼다.
@@ -97,41 +80,13 @@ public class Character : MonoBehaviour
         if (this.behaviour_State == behaviour_State)
             return;
 
-        switch (this.behaviour_State)
-        {
-            case Behaviour_State.START_STATE:
-                startState.End(this);
-                break;
-            case Behaviour_State.IDLE_STATE:
-                idleState.End(this);
-                break;
-            case Behaviour_State.MOVE_STATE:
-                moveState.End(this);
-                break;
-            case Behaviour_State.ATTACK_STATE:
-                attackState.End(this);
-                break;
-        }
+        stateDic[behaviour_State].End(this);
 
         this.behaviour_State = behaviour_State;
 
-        switch (this.behaviour_State)
-        {
-            case Behaviour_State.START_STATE:
-                startState.Start(this);
-                break;
-            case Behaviour_State.IDLE_STATE:
-                idleState.Start(this);
-                break;
-            case Behaviour_State.MOVE_STATE:
-                moveState.Start(this);
-                break;
-            case Behaviour_State.ATTACK_STATE:
-                attackState.Start(this);
-                break;
-        }
+        stateDic[behaviour_State].Start(this);
     }
-
+    
     /// <summary>
     /// 이동할 거리를 구한다.
     /// </summary>
