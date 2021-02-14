@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 515065354
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: prefab/background/environment1
+      Dependencies:
+        Dependency_0: prefab/background/background_public
+    Info_1:
+      Name: prefab/background/background_public
+      Dependencies: {}
+    Info_2:
+      Name: prefab/character/knight/bravekinght
+      Dependencies:
+        Dependency_0: prefab/ui/character_hp
+    Info_3:
+      Name: prefab/ui/character_hp
+      Dependencies: {}

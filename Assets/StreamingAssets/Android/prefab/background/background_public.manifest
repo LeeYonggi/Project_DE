@@ -1,0 +1,36 @@
+ManifestFileVersion: 0
+CRC: 472227809
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 0f0ca8547077832d23415a8ef61a6781
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: c3a374e96d80e839c3cc5909ba4dbf9d
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Forest Ruins Pack/Prefabs/Ancient Pillar 01.prefab
+- Assets/Forest Ruins Pack/Materials/Environment 01.mat
+- Assets/Forest Ruins Pack/FBX/Ancient Pillar 01.FBX
+- Assets/Forest Ruins Pack/Textures/Environment 01.psd
+Dependencies: []
