@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 
 public class Character : MonoBehaviour
 {
@@ -15,6 +17,7 @@ public class Character : MonoBehaviour
         IDLE_STATE,
         MOVE_STATE,
         ATTACK_STATE,
+        DEATH_STATE,
     }
 
     protected Rigidbody mRigidbody = null;
@@ -25,7 +28,7 @@ public class Character : MonoBehaviour
     private CharacterStatistics statistics = null;
     private Character targetCharacter = null;
 
-    private Behaviour_State behaviour_State = Behaviour_State.START_STATE;
+    private Behaviour_State current_State = Behaviour_State.START_STATE;
 
     protected bool isDestroy = false;
 
@@ -37,6 +40,17 @@ public class Character : MonoBehaviour
     public Character TargetCharacter { get => targetCharacter; set => targetCharacter = value; }
     public GameObject Model { get => model; set => model = value; }
     #endregion
+
+    private void OnEnable()
+    {
+        //Statistics.notEnoughHpEvent += DeathCharacter;
+    }
+
+    private void OnDisable()
+    {
+        //Statistics.notEnoughHpEvent -= DeathCharacter;
+    }
+
 
     // 캐릭터 초기화
     protected void CharacterStart(CharacterStatistics initStatistics)
@@ -54,7 +68,7 @@ public class Character : MonoBehaviour
         stateDic[Behaviour_State.IDLE_STATE] = new BasicIdle();
         stateDic[Behaviour_State.MOVE_STATE] = new KnightMove();
         stateDic[Behaviour_State.ATTACK_STATE] = new KnightAttack();
-        
+        stateDic[Behaviour_State.DEATH_STATE] = new BasicDeath();
 
         stateDic[Behaviour_State.START_STATE].Start(this);
     }
@@ -67,8 +81,22 @@ public class Character : MonoBehaviour
     // 자체 업데이트
     protected void ObjectUpdate()
     {
-        CollisionUpdate();
-        stateDic[behaviour_State].Update(this);
+        
+        if (!isDestroy)
+            CollisionUpdate();
+
+        stateDic[current_State].Update(this);
+
+
+#if UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            statistics.Hp -= 100;
+            if (statistics.Hp <= 0)
+                DeathCharacter();
+            Debug.Log("!");
+#endif
+        }
     }
 
     /// <summary>
@@ -77,12 +105,12 @@ public class Character : MonoBehaviour
     /// <param name="behaviour_State">바꿀 상태</param>
     public void ChangeCurrentState(Behaviour_State behaviour_State)
     {
-        if (this.behaviour_State == behaviour_State)
+        if (this.current_State == behaviour_State)
             return;
 
-        stateDic[behaviour_State].End(this);
+        stateDic[this.current_State].End(this);
 
-        this.behaviour_State = behaviour_State;
+        this.current_State = behaviour_State;
 
         stateDic[behaviour_State].Start(this);
     }
@@ -121,6 +149,13 @@ public class Character : MonoBehaviour
         }
     }
 
+    private void DeathCharacter()
+    {
+        isDestroy = true;
+        ChangeCurrentState(Behaviour_State.DEATH_STATE);
+    }
+
+
     private void OnDrawGizmos()
     {
         float maxDistance = 100;
@@ -140,5 +175,10 @@ public class Character : MonoBehaviour
     public void ComeUnderAttack(CharacterStatistics attackingEnemyStat)
     {
         statistics.Hp = statistics.Hp - attackingEnemyStat.Damage;
+    }
+
+    public void DestroyCharacter()
+    {
+        Destroy(this.gameObject);
     }
 }
