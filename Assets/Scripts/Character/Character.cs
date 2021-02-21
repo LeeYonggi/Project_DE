@@ -81,7 +81,6 @@ public class Character : MonoBehaviour
     // 자체 업데이트
     protected void ObjectUpdate()
     {
-        
         if (!isDestroy)
             CollisionUpdate();
 
@@ -95,8 +94,8 @@ public class Character : MonoBehaviour
             if (statistics.Hp <= 0)
                 DeathCharacter();
             Debug.Log("!");
-#endif
         }
+#endif
     }
 
     /// <summary>
@@ -114,7 +113,7 @@ public class Character : MonoBehaviour
 
         stateDic[behaviour_State].Start(this);
     }
-    
+
     /// <summary>
     /// 이동할 거리를 구한다.
     /// </summary>
@@ -123,7 +122,7 @@ public class Character : MonoBehaviour
     {
         Vector3 nextPosition = transform.position + moveVector * Time.deltaTime * statistics.Speed;
 
-        return (nextPosition - transform.position).magnitude; 
+        return (nextPosition - transform.position).magnitude;
     }
 
     /// <summary>

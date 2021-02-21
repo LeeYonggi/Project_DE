@@ -4,56 +4,60 @@ using System.Collections.Generic;
 using Manager;
 using UnityEngine;
 
-public class UIManager : Singleton<UIManager>, BaseManager
+namespace Manager
 {
-    private Dictionary<string, UIForm> uiForms = new Dictionary<string, UIForm>();
-    private Dictionary<string, GameObject> objectPacks = new Dictionary<string, GameObject>();
-
-    private GameObject parent = null;
-    private Camera currentCamera = null;
-
-    float escapeDelay = 0.0f;
-
-    public Camera CurrentCamera 
+    public class UIManager : Singleton<UIManager>, BaseManager
     {
-        get
+        private Dictionary<string, UIForm> uiForms = new Dictionary<string, UIForm>();
+        private Dictionary<string, GameObject> objectPacks = new Dictionary<string, GameObject>();
+
+        private Camera currentCamera = null;
+
+        float escapeDelay = 0.0f;
+
+        public Camera CurrentCamera
+        {
+            get
+            {
+                if (currentCamera == null)
+                    currentCamera = CreateOrFindUICamera();
+                return currentCamera;
+            }
+            set => currentCamera = value;
+        }
+
+        public void Start()
         {
             if (currentCamera == null)
                 currentCamera = CreateOrFindUICamera();
-            return currentCamera;
         }
-        set => currentCamera = value;
-    }
 
-    public void Start()
-    {
-    }
-
-    public void Destroy()
-    {
-    }
-
-    public void Update()
-    {
-    }
-
-    public void FixedUpdate()
-    {
-    }
-
-    public void LateUpdate()
-    {
-    }
-
-    private Camera CreateOrFindUICamera()
-    {
-        GameObject temp = GameObject.FindGameObjectWithTag("UICamera");
-
-        if (temp == null)
+        public void Destroy()
         {
-
         }
 
-        return temp.GetComponent<Camera>();
+        public void Update()
+        {
+        }
+
+        public void FixedUpdate()
+        {
+        }
+
+        public void LateUpdate()
+        {
+        }
+
+        private Camera CreateOrFindUICamera()
+        {
+            GameObject temp = GameObject.FindGameObjectWithTag("UICamera");
+
+            if (temp == null)
+            {
+                AssetBundleManager.Instance.GetAsset<GameObject>("prefab/camera", "UICamera");
+            }
+
+            return temp.GetComponent<Camera>();
+        }
     }
 }

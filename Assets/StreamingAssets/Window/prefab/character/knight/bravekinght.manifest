@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2050135202
+CRC: 1146636480
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: ca2c62254d042386dbaeee37a3b16d75
+    Hash: 51428e1b9fb4deaca129215e1537b158
   TypeTreeHash:
     serializedVersion: 2
     Hash: db16e2cd49248753b8b7c5471f4f77bc
@@ -63,4 +63,4 @@ SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/DefaultResources/prefab/character/knight/BraveKnight.prefab
 Dependencies:
-- E:/PROGRAMMING/PROJECT/UNIY/Project_DE/Assets/StreamingAssets/Android/prefab/ui/character_hp
+- E:/PROGRAMMING/PROJECT/UNIY/Project_DE/Assets/StreamingAssets/Window/prefab/ui/character_hp

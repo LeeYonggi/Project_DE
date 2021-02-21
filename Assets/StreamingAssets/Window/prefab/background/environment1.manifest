@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2230590080
+CRC: 4085698806
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 2f69f96af7c3322c043b89c622e7c546
+    Hash: 6357400cab505458bd964451f8241735
   TypeTreeHash:
     serializedVersion: 2
     Hash: 6c3c4b8f2bc73c75f792ebdf5af7ad8d
@@ -33,4 +33,4 @@ SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/DefaultResources/prefab/background/Environment1.prefab
 Dependencies:
-- E:/PROGRAMMING/PROJECT/UNIY/Project_DE/Assets/StreamingAssets/Android/prefab/background/background_public
+- E:/PROGRAMMING/PROJECT/UNIY/Project_DE/Assets/StreamingAssets/Window/prefab/background/background_public

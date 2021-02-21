@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Manager;
 
 public class MainManager : MonoBehaviour
 {
@@ -24,7 +25,9 @@ public class MainManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(TempBundleManager());
+        AssetBundleManager.Instance.Initialize();
+        SceneManager.Instance.Start();
+        //UIManager.Instance.Start();
     }
 
     IEnumerator TempBundleManager()
@@ -37,12 +40,15 @@ public class MainManager : MonoBehaviour
 
         if (initializeAsync.Success)
         {
+            AssetBundles.AssetBundleAsync bundle2 = bundleManager.GetBundleAsync("prefab/background/background_public");
             AssetBundles.AssetBundleAsync bundle = bundleManager.GetBundleAsync("prefab/background/environment1");
+            yield return bundle2;
             yield return bundle;
 
             if(bundle.AssetBundle)
             {
-                bundleManager.UnloadBundle(bundle.AssetBundle);
+                Instantiate(bundle.AssetBundle.LoadAsset<GameObject>("environment1"));
+                //bundleManager.UnloadBundle(bundle.AssetBundle);
             }
             else
             {
@@ -56,8 +62,19 @@ public class MainManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        SceneManager.Instance.Update();
+        UIManager.Instance.Update();
     }
 
-    
+    private void FixedUpdate()
+    {
+        SceneManager.Instance.FixedUpdate();
+        UIManager.Instance.FixedUpdate();
+    }
+
+    private void LateUpdate()
+    {
+        SceneManager.Instance.LateUpdate();
+        UIManager.Instance.LateUpdate();
+    }
 }

@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2230590080
+CRC: 3951858160
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 2f69f96af7c3322c043b89c622e7c546
+    Hash: 62a575d5e62a25bdf83592d81e902fb2
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 6c3c4b8f2bc73c75f792ebdf5af7ad8d
+    Hash: c3a374e96d80e839c3cc5909ba4dbf9d
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -25,12 +25,12 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 48
   Script: {instanceID: 0}
-- Class: 64
-  Script: {instanceID: 0}
 - Class: 65
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/DefaultResources/prefab/background/Environment1.prefab
-Dependencies:
-- E:/PROGRAMMING/PROJECT/UNIY/Project_DE/Assets/StreamingAssets/Android/prefab/background/background_public
+- Assets/Forest Ruins Pack/Prefabs/Ancient Pillar 01.prefab
+- Assets/Forest Ruins Pack/Materials/Environment 01.mat
+- Assets/Forest Ruins Pack/FBX/Ancient Pillar 01.FBX
+- Assets/Forest Ruins Pack/Textures/Environment 01.psd
+Dependencies: []

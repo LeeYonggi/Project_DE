@@ -1,66 +1,62 @@
 ManifestFileVersion: 0
-CRC: 2050135202
+CRC: 192252206
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: ca2c62254d042386dbaeee37a3b16d75
+    Hash: 8c7f9b5e012640d6046edd12c033b5f8
   TypeTreeHash:
     serializedVersion: 2
-    Hash: db16e2cd49248753b8b7c5471f4f77bc
+    Hash: 1f7bff384494d7fee691ee539dc53879
 HashAppended: 0
 ClassTypes:
 - Class: 1
   Script: {instanceID: 0}
 - Class: 4
   Script: {instanceID: 0}
-- Class: 21
+- Class: 20
   Script: {instanceID: 0}
-- Class: 23
+- Class: 21
   Script: {instanceID: 0}
 - Class: 28
   Script: {instanceID: 0}
-- Class: 33
-  Script: {instanceID: 0}
-- Class: 43
-  Script: {instanceID: 0}
 - Class: 48
   Script: {instanceID: 0}
-- Class: 54
+- Class: 81
   Script: {instanceID: 0}
-- Class: 74
+- Class: 104
   Script: {instanceID: 0}
-- Class: 90
+- Class: 108
   Script: {instanceID: 0}
-- Class: 91
-  Script: {instanceID: 0}
-- Class: 95
-  Script: {instanceID: 0}
-- Class: 114
-  Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: cb4f5904691c33b49b2303efd2a60a79, type: 3}
+  Script: {fileID: 11500000, guid: 5a3021ad519faa64383567db1e4a81ae, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 20f7e6f23d3e6d34581e56a9849971c8, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
 - Class: 115
   Script: {instanceID: 0}
-- Class: 136
+- Class: 157
   Script: {instanceID: 0}
-- Class: 137
+- Class: 196
   Script: {instanceID: 0}
-- Class: 213
-  Script: {instanceID: 0}
-- Class: 222
+- Class: 220
   Script: {instanceID: 0}
 - Class: 223
   Script: {instanceID: 0}
 - Class: 224
   Script: {instanceID: 0}
+- Class: 850595691
+  Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/DefaultResources/prefab/character/knight/BraveKnight.prefab
+- Assets/Scenes/INGAME.unity
 Dependencies:
-- E:/PROGRAMMING/PROJECT/UNIY/Project_DE/Assets/StreamingAssets/Android/prefab/ui/character_hp
+- E:/PROGRAMMING/PROJECT/UNIY/Project_DE/Assets/StreamingAssets/Window/prefab/camera
