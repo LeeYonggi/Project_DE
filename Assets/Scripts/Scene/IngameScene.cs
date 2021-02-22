@@ -19,22 +19,27 @@ public class IngameScene : Singleton<TitleScene>, BaseScene
 
     public void Start()
     {
+        IngameManager.Instance.Start();
     }
 
     public void Destroy()
     {
+        IngameManager.Instance.Destroy();
+    }
+
+    public void Update()
+    {
+        IngameManager.Instance.Update();
     }
 
     public void FixedUpdate()
     {
+        IngameManager.Instance.FixedUpdate();
     }
 
     public void LateUpdate()
     {
+        IngameManager.Instance.LateUpdate();
     }
-
-
-    public void Update()
-    {
-    }
+    
 }
