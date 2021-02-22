@@ -12,5 +12,6 @@ public interface BaseScene
     void FixedUpdate();
     void LateUpdate();
     void Destroy();
+    void Load();
 }
 

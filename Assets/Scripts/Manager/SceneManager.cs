@@ -40,6 +40,8 @@ namespace Manager
             sceneBundleNameDct[SCENE_KIND.INGAME] = "scene/ingame";
 
             ChangeCurrentScene(SCENE_KIND.TITLE);
+
+            currentScene.Start();
         }
 
         /// <summary>
@@ -51,7 +53,7 @@ namespace Manager
         {
             isSceneChanging = false;
 
-            ChangeCurrentScene((SCENE_KIND)Enum.Parse(typeof(SCENE_KIND), arg0.name));
+            currentScene.Start();
         }
 
         public void Destroy()
@@ -88,6 +90,8 @@ namespace Manager
                 UnityScene.SceneManager.LoadScene(
                     AssetBundleManager.Instance.GetBundleSceneName(sceneBundleNameDct[scene], scene.ToString())
                     );
+
+                ChangeCurrentScene(scene);
             };
 
             AssetBundleManager.Instance.AssetBundleLoad(sceneBundleNameDct[scene], assetBundleData);
@@ -109,7 +113,7 @@ namespace Manager
                     break;
             }
 
-            currentScene.Start();
+            currentScene.Load();
         }
     }
 }

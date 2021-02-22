@@ -5,6 +5,11 @@ using Manager;
 
 public class TitleScene : Singleton<TitleScene>, BaseScene
 {
+    public void Load()
+    {
+        AssetBundleManager.Instance.AssetBundleLoad("prefab/background/background_public", new AssetBundleData(false));
+    }
+
     public void Destroy()
     {
     }
@@ -31,4 +36,5 @@ public class TitleScene : Singleton<TitleScene>, BaseScene
     {
         base.Dispose();
     }
+
 }
