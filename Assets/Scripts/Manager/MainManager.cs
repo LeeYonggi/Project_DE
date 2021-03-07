@@ -5,7 +5,12 @@ using Manager;
 
 public class MainManager : MonoBehaviour
 {
-    public static MainManager instance = new MainManager();
+    private static MainManager instance = new MainManager();
+
+    // 매니져 초기화가 끝났으면
+    private bool isManagerInit = false;
+
+    public static MainManager Instance { get => instance; set => instance = value; }
 
     private void Awake()
     {
@@ -26,55 +31,59 @@ public class MainManager : MonoBehaviour
     void Start()
     {
         AssetBundleManager.Instance.Initialize();
-        SceneManager.Instance.Start();
-        //UIManager.Instance.Start();
+        TitleScene.BeginLoad();
+        StartCoroutine(WaitforAssetLoad());
     }
 
-    IEnumerator TempBundleManager()
+
+    void ManagerInitialize()
     {
-        var bundleManager = new AssetBundles.AssetBundleManager();
-        bundleManager.UseStreamingAssetsFolder();
-        var initializeAsync = bundleManager.InitializeAsync();
+        SceneManager.Instance.Start();
+        UIManager.Instance.Start();
+    }
 
-        yield return initializeAsync;
-
-        if (initializeAsync.Success)
+    IEnumerator WaitforAssetLoad()
+    {
+        while(true)
         {
-            AssetBundles.AssetBundleAsync bundle2 = bundleManager.GetBundleAsync("prefab/background/background_public");
-            AssetBundles.AssetBundleAsync bundle = bundleManager.GetBundleAsync("prefab/background/environment1");
-            yield return bundle2;
-            yield return bundle;
+            yield return new WaitForEndOfFrame();
 
-            if(bundle.AssetBundle)
+            if (AssetBundleManager.Instance.IsAssetBundleLoadComplete())
             {
-                Instantiate(bundle.AssetBundle.LoadAsset<GameObject>("environment1"));
-                //bundleManager.UnloadBundle(bundle.AssetBundle);
-            }
-            else
-            {
-                Debug.LogError("Error initializing AssetBundleManager.");
+                ManagerInitialize();
+
+                isManagerInit = true;
+                break;
             }
         }
-
-        bundleManager.Dispose();
+        yield return null;
     }
 
     // Update is called once per frame
     void Update()
     {
-        SceneManager.Instance.Update();
-        UIManager.Instance.Update();
+        if(isManagerInit)
+        {
+            SceneManager.Instance.Update();
+            UIManager.Instance.Update();
+        }
     }
 
     private void FixedUpdate()
     {
-        SceneManager.Instance.FixedUpdate();
-        UIManager.Instance.FixedUpdate();
+        if(isManagerInit)
+        {
+            SceneManager.Instance.FixedUpdate();
+            UIManager.Instance.FixedUpdate();
+        }
     }
 
     private void LateUpdate()
     {
-        SceneManager.Instance.LateUpdate();
-        UIManager.Instance.LateUpdate();
+        if(isManagerInit)
+        {
+            SceneManager.Instance.LateUpdate();
+            UIManager.Instance.LateUpdate();
+        }
     }
 }

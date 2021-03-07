@@ -20,6 +20,7 @@ public class AssetBundleManager : Singleton<AssetBundleManager>
     /// 로드중인 번들 리스트
     /// </summary>
     private List<string> loadingBundleList = new List<string>();
+
     /// <summary>
     /// 씬 변경에 영향을 받지 않는 번들 리스트
     /// </summary>
@@ -59,7 +60,7 @@ public class AssetBundleManager : Singleton<AssetBundleManager>
 
         if(loadingBundleList.Count == 1)
         {
-            MainManager.instance.StartCoroutine(AssetBundleLoadCoroutine());
+            MainManager.Instance.StartCoroutine(AssetBundleLoadCoroutine());
         }
     }
 
@@ -141,6 +142,15 @@ public class AssetBundleManager : Singleton<AssetBundleManager>
         string name = Path.GetFileNameWithoutExtension(scenePaths[0]);
 
         return name;
+    }
+
+    /// <summary>
+    /// 애셋번들 로드가 완료 되었는가.
+    /// </summary>
+    /// <returns></returns>
+    public bool IsAssetBundleLoadComplete()
+    {
+        return loadingBundleList.Count == 0;
     }
 
     public override void Dispose()

@@ -3,12 +3,18 @@ using UnityEngine;
 
 public abstract class UIForm
 {
-    protected GameObject uiObject = null;
+    private GameObject uiObject = null;
 
     public event Action OpenEvent = null;
     public event Action CloseEvent = null;
 
     public bool IsOpen { get => uiObject.activeSelf; }
+    internal GameObject UiObject { get => uiObject; set => uiObject = value; }
+
+    public virtual void Awake()
+    {
+
+    }
 
     public virtual void Start()
     {
@@ -17,6 +23,7 @@ public abstract class UIForm
 
     public virtual void Update() { }
     public virtual void FixedUpdate() { }
+    public virtual void LateUpdate() { }
 
     public virtual void Destroy()
     {
@@ -42,9 +49,5 @@ public abstract class UIForm
         CloseEvent?.Invoke();
     }
 
-    protected void AddUIObjectFormPacks(string name)
-    {
-        
-    }
 }
 

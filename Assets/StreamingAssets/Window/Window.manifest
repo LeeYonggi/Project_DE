@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 1521694617
+CRC: 2050543194
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -23,3 +23,6 @@ AssetBundleManifest:
       Name: scene/ingame
       Dependencies:
         Dependency_0: prefab/camera
+    Info_6:
+      Name: prefab/ui/ingame
+      Dependencies: {}

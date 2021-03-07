@@ -21,7 +21,6 @@ public struct AssetBundleData
         this.isDontDestroySceneLoad = isDontDestroySceneLoad;
         onComplete = null;
     }
-
 }
 
 public class AssetBundleLoader

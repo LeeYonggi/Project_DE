@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Manager;
 using UnityScene = UnityEngine.SceneManagement;
+using UnityEngine;
+using System.Collections;
 
 namespace Manager
 {
@@ -53,7 +55,7 @@ namespace Manager
         {
             isSceneChanging = false;
 
-            currentScene.Start();
+            sceneLoadEvent?.Invoke(arg0, arg1);
         }
 
         public void Destroy()
@@ -63,7 +65,15 @@ namespace Manager
 
         public void FixedUpdate()
         {
-            currentScene.FixedUpdate();
+            try
+            {
+                currentScene.FixedUpdate();
+
+            }
+            catch
+            {
+                Debug.Log("ss");
+            }
         }
 
         public void LateUpdate()
@@ -87,16 +97,30 @@ namespace Manager
 
             assetBundleData.onComplete += () =>
             {
-                UnityScene.SceneManager.LoadScene(
-                    AssetBundleManager.Instance.GetBundleSceneName(sceneBundleNameDct[scene], scene.ToString())
-                    );
-
-                ChangeCurrentScene(scene);
+                MainManager.Instance.StartCoroutine(LoadSceneAsync(scene));
             };
 
             AssetBundleManager.Instance.AssetBundleLoad(sceneBundleNameDct[scene], assetBundleData);
 
             isSceneChanging = true;
+        }
+
+        IEnumerator LoadSceneAsync(SCENE_KIND scene)
+        {
+            AsyncOperation asyncOper = UnityScene.SceneManager.LoadSceneAsync(
+                AssetBundleManager.Instance.GetBundleSceneName(sceneBundleNameDct[scene], scene.ToString())
+                );
+
+            ChangeCurrentScene(scene);
+
+            while(AssetBundleManager.Instance.IsAssetBundleLoadComplete() == false
+                 || asyncOper.isDone == false)
+            {
+                yield return new WaitForEndOfFrame();
+            }
+            currentScene.Start();
+
+            yield return null;
         }
 
         private void ChangeCurrentScene(SCENE_KIND sceneKind)

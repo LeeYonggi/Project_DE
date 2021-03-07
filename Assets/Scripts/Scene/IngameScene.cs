@@ -15,10 +15,13 @@ public class IngameScene : Singleton<TitleScene>, BaseScene
         };
 
         AssetBundleManager.Instance.AssetBundleLoad("prefab/background/environment1", bundle);
+
+        AssetBundleManager.Instance.AssetBundleLoad("prefab/ui/ingame", new AssetBundleData(false));
     }
 
     public void Start()
     {
+        UIManager.Instance.CreateUIForm("prefab/ui/ingame", "IngameUIForm");
     }
 
     public void Destroy()
