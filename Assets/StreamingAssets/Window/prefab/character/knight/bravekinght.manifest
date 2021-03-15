@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1146636480
+CRC: 1950493318
 Hashes:
   AssetFileHash:
     serializedVersion: 2
     Hash: 51428e1b9fb4deaca129215e1537b158
   TypeTreeHash:
     serializedVersion: 2
-    Hash: db16e2cd49248753b8b7c5471f4f77bc
+    Hash: 08f07f6a21c96fd631f9da0685ee8761
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -40,9 +40,9 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: cb4f5904691c33b49b2303efd2a60a79, type: 3}
 - Class: 115
@@ -63,4 +63,4 @@ SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/DefaultResources/prefab/character/knight/BraveKnight.prefab
 Dependencies:
-- E:/PROGRAMMING/PROJECT/UNIY/Project_DE/Assets/StreamingAssets/Window/prefab/ui/character_hp
+- E:/PROGRAMMING/PROJECT/UNITY/Project_DE/Assets/StreamingAssets/Window/prefab/ui/character_hp

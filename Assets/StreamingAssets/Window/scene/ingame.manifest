@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 179247478
+CRC: 917201110
 Hashes:
   AssetFileHash:
     serializedVersion: 2
     Hash: 75b1445c324c7610873e6caf4617bdf4
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 619081e6977388c92b0c10594485ef54
+    Hash: 41e9895b82d2e1f3e724244bc1416772
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -28,9 +28,9 @@ ClassTypes:
 - Class: 108
   Script: {instanceID: 0}
 - Class: 114
-  Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 5a3021ad519faa64383567db1e4a81ae, type: 3}
 - Class: 114
@@ -57,4 +57,4 @@ SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/Scenes/INGAME.unity
 Dependencies:
-- E:/PROGRAMMING/PROJECT/UNIY/Project_DE/Assets/StreamingAssets/Window/prefab/camera
+- E:/PROGRAMMING/PROJECT/UNITY/Project_DE/Assets/StreamingAssets/Window/prefab/camera
