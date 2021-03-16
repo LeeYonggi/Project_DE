@@ -26,11 +26,12 @@ namespace Manager
             }
         }
 
-        public static void DestroyInstance()
+        public void DestroyInstance()
         {
             if (instance == null)
                 return;
 
+            Dispose();
             instance = null;
         }
 

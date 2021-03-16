@@ -128,12 +128,12 @@ namespace Manager
             switch (sceneKind)
             {
                 case SCENE_KIND.TITLE:
-                    currentScene = new TitleScene();
+                    currentScene = TitleScene.Instance;
                     break;
                 case SCENE_KIND.MAINMENUSCENE:
                     break;
                 case SCENE_KIND.INGAME:
-                    currentScene = new IngameScene();
+                    currentScene = IngameScene.Instance;
                     break;
             }
 

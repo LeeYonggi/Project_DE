@@ -66,6 +66,8 @@ public class CharacterUI_ArrangementSlot : BaseBehaviour
 
         transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
         enterPoint = rectTransform.anchoredPosition;
+
+        IngameScene.Instance.PlaceObjforCard(true);
     }
 
     private void SlotDrag(BaseEventData data)
@@ -76,7 +78,7 @@ public class CharacterUI_ArrangementSlot : BaseBehaviour
             (uiFormRectTransform == null) ? transform.parent.GetComponent<RectTransform>() : uiFormRectTransform;
 
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            tempUiFormRectTransform, // I will Fix it because cost too high - Lee Yonggi 2021/03/10
+            tempUiFormRectTransform, 
             Input.mousePosition, 
             UIManager.Instance.CurrentCamera, 
             out mousePos);
@@ -89,5 +91,7 @@ public class CharacterUI_ArrangementSlot : BaseBehaviour
         transform.DOScale(new Vector3(1.0f, 1.0f, 1.0f), 0.4f).SetEase(Ease.InSine);
 
         rectTransform.DOAnchorPos(initAnchoredPos, 0.4f).SetEase(Ease.InSine);
+
+        IngameScene.Instance.PlaceObjforCard(false);
     }
 }

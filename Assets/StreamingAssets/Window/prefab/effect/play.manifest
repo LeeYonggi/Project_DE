@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3229402085
+CRC: 3064399236
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: ccf5419cd56738781a3cbc1f75280537
+    Hash: a9229f56721f1d98307e7e3e95192812
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 6c3c4b8f2bc73c75f792ebdf5af7ad8d
+    Hash: aaf5f40d0213f0959ea34d4eb2bbb6f9
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -15,22 +15,15 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 21
   Script: {instanceID: 0}
-- Class: 23
-  Script: {instanceID: 0}
 - Class: 28
-  Script: {instanceID: 0}
-- Class: 33
-  Script: {instanceID: 0}
-- Class: 43
   Script: {instanceID: 0}
 - Class: 48
   Script: {instanceID: 0}
-- Class: 64
+- Class: 212
   Script: {instanceID: 0}
-- Class: 65
+- Class: 213
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/DefaultResources/prefab/background/Environment1.prefab
-Dependencies:
-- E:/PROGRAMMING/PROJECT/UNITY/Project_DE/Assets/StreamingAssets/Window/prefab/background/background_public
+- Assets/DefaultResources/prefab/effect/play/UnplaceableArea.prefab
+Dependencies: []
