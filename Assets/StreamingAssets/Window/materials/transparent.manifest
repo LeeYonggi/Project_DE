@@ -1,0 +1,56 @@
+ManifestFileVersion: 0
+CRC: 1739046273
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: dc2416047e045ec175d5fd8bb9bb545d
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: b48f5048164b4cd7f73cc9f8cf76aa5d
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/DefaultResources/materials/transparent/Weapons and Props_Transparent.mat
+- Assets/DefaultResources/materials/transparent/Tan Aqua_Transparent.mat
+- Assets/DefaultResources/materials/transparent/Face Male 02 Orange_Transparent.mat
+- Assets/DefaultResources/materials/transparent/Face Male 03 Grey_Transparent.mat
+- Assets/DefaultResources/materials/transparent/Face Male 01 Grey_Transparent.mat
+- Assets/DefaultResources/materials/transparent/Hair Blonde_Transparent.mat
+- Assets/DefaultResources/materials/transparent/Face Male 02 Grey_Transparent.mat
+- Assets/DefaultResources/materials/transparent/Face Male 03 Black_Transparent.mat
+- Assets/DefaultResources/materials/transparent/Fair Nature_Transparent.mat
+- Assets/DefaultResources/materials/transparent/Tan Fire_Transparent.mat
+- Assets/DefaultResources/materials/transparent/Face Male 01 Orange_Transparent.mat
+- Assets/DefaultResources/materials/transparent/Hair Orange_Transparent.mat
+- Assets/DefaultResources/materials/transparent/Hair Brown_Transparent.mat
+- Assets/DefaultResources/materials/transparent/Face Male 03 Brown_Transparent.mat
+- Assets/DefaultResources/materials/transparent/Fair Dark_Transparent.mat
+- Assets/DefaultResources/materials/transparent/Face Male 01 Blonde_Transparent.mat
+- Assets/Male Knight Pack 01 Cute Series/Standard Assets Files/Textures/Weapons and
+  Props.psd
+- Assets/DefaultResources/materials/transparent/FX Aura_Transparent.mat
+- Assets/DefaultResources/materials/transparent/Face Male 02 Brown_Transparent.mat
+- Assets/DefaultResources/materials/transparent/Face Male 02 Black_Transparent.mat
+- Assets/DefaultResources/materials/transparent/Face Male 03 Orange_Transparent.mat
+- Assets/DefaultResources/materials/transparent/Hair Grey_Transparent.mat
+- Assets/DefaultResources/materials/transparent/Tan Nature_Transparent.mat
+- Assets/DefaultResources/materials/transparent/Tan Dark_Transparent.mat
+- Assets/Male Knight Pack 01 Cute Series/Standard Assets Files/Textures/Face Male
+  01 Orange.psd
+- Assets/DefaultResources/materials/transparent/Face Male 01 Brown_Transparent.mat
+- Assets/DefaultResources/materials/transparent/Fair Fire_Transparent.mat
+- Assets/DefaultResources/materials/transparent/Face Male 02 Blonde_Transparent.mat
+- Assets/DefaultResources/materials/transparent/Hair Black_Transparent.mat
+- Assets/DefaultResources/materials/transparent/Face Male 03 Blonde_Transparent.mat
+- Assets/Male Knight Pack 01 Cute Series/Standard Assets Files/Textures/Hair Light.psd
+- Assets/DefaultResources/materials/transparent/Face Male 01 Black_Transparent.mat
+- Assets/DefaultResources/materials/transparent/Fair Aqua_Transparent.mat
+- Assets/Male Knight Pack 01 Cute Series/Standard Assets Files/Textures/Fair Aqua.psd
+Dependencies: []

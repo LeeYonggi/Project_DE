@@ -10,6 +10,7 @@ public class CharacterUI_ArrangementSlot : BaseBehaviour
 {
     private EventTrigger eventTrigger = null;
     private GameObject slot = null;
+    private GameObject imageUI = null;
     private RectTransform rectTransform = null;
     private Vector3 enterPoint = Vector3.zero;
 
@@ -41,6 +42,7 @@ public class CharacterUI_ArrangementSlot : BaseBehaviour
     private void Awake()
     {
         slot = transform.Find("Slot").gameObject;
+        imageUI = transform.Find("Slot/ImageUI").gameObject;
 
         eventTrigger = slot.GetComponent<EventTrigger>();
 
@@ -115,15 +117,19 @@ public class CharacterUI_ArrangementSlot : BaseBehaviour
         transform.localScale = new Vector3(ratio, ratio, ratio);
 
         // Raycast로 놓을 수 있는 곳인지 판단
-        RaycastHit[] raycastHit = IngameScene.Instance.CameraMousePointRaycast();
+        RaycastHit raycastHit = GetPlaceableColliderRayhit(out bool isHit);
 
-        for(int i = 0; i < raycastHit.Length; i++)
+        if(isHit)
         {
-            if(raycastHit[i].transform.tag == "PlaceableCollider")
-            {
-                
-                Debug.Log("True");
-            }
+            imageUI.SetActive(false);
+
+            IngameScene.Instance.SetDeployEffectActive("BraveKnight", true);
+            IngameScene.Instance.SetDeployEffectPos("BraveKnight", raycastHit.point);
+        }
+        else
+        {
+            IngameScene.Instance.SetDeployEffectActive("BraveKnight", false);
+            imageUI.SetActive(true);
         }
     }
 
@@ -134,5 +140,23 @@ public class CharacterUI_ArrangementSlot : BaseBehaviour
         rectTransform.DOAnchorPos(initAnchoredPos, 0.4f).SetEase(Ease.InSine);
 
         IngameScene.Instance.PlaceObjforCard(false);
+        imageUI.SetActive(true);
     }
+
+    private RaycastHit GetPlaceableColliderRayhit(out bool isHit)
+    {
+        RaycastHit[] raycastHit = IngameScene.Instance.CameraMousePointRaycast();
+
+        for (int i = 0; i < raycastHit.Length; i++)
+        {
+            if (raycastHit[i].transform.tag == "PlaceableCollider")
+            {
+                isHit = true;
+                return raycastHit[i];
+            }
+        }
+        isHit = false;
+        return default;
+    }
+
 }

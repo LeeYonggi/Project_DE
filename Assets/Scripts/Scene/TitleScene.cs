@@ -8,6 +8,7 @@ public class TitleScene : Singleton<TitleScene>, BaseScene
     static public void BeginLoad()
     {
         AssetBundleManager.Instance.AssetBundleLoad("prefab/camera", new AssetBundleData(false));
+        AssetBundleManager.Instance.AssetBundleLoad("materials/transparent", new AssetBundleData(false));
     }
 
     public void Load()

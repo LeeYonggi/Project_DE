@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 2260853785
+CRC: 2314024288
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -13,6 +13,7 @@ AssetBundleManifest:
       Name: prefab/character/knight/bravekinght
       Dependencies:
         Dependency_0: prefab/ui/character_hp
+        Dependency_1: materials/transparent
     Info_3:
       Name: prefab/ui/character_hp
       Dependencies: {}
@@ -28,4 +29,7 @@ AssetBundleManifest:
       Dependencies: {}
     Info_7:
       Name: prefab/effect/play
+      Dependencies: {}
+    Info_8:
+      Name: materials/transparent
       Dependencies: {}

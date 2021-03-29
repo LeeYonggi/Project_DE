@@ -8,11 +8,12 @@ public class IngameScene : Singleton<IngameScene>, BaseScene
 {
     // 배치불가지역 효과
     GameObject unplaceableArea = null;
-
+    // 배치가능지역 충돌처리
     List<GameObject> placeColliderList = new List<GameObject>();
 
     Camera ingameMainCamera = null;
 
+    private Dictionary<string, GameObject> deployEffectList = new Dictionary<string, GameObject>();
     private List<GameObject> objectPredictionList = new List<GameObject>();
 
     public void Load()
@@ -28,6 +29,8 @@ public class IngameScene : Singleton<IngameScene>, BaseScene
         AssetBundleManager.Instance.AssetBundleLoad("prefab/ui/ingame", new AssetBundleData(false));
 
         AssetBundleManager.Instance.AssetBundleLoad("prefab/effect/play", new AssetBundleData(false));
+
+        AssetBundleManager.Instance.AssetBundleLoad("prefab/character/knight/bravekinght", new AssetBundleData(false));
     }
 
     public void Start()
@@ -48,6 +51,8 @@ public class IngameScene : Singleton<IngameScene>, BaseScene
         ingameMainCamera = GameObject.FindGameObjectsWithTag("MainCamera")[0].GetComponent<Camera>();
 
         unplaceableArea.SetActive(false);
+
+        DeployEffectInit();
     }
 
     public void Destroy()
@@ -84,5 +89,30 @@ public class IngameScene : Singleton<IngameScene>, BaseScene
         RaycastHit[] hit = Physics.RaycastAll(ray);
 
         return hit;
+    }
+
+    /// <summary>
+    /// 배치효과 오브젝트들 초기화
+    /// </summary>
+    private void DeployEffectInit()
+    {
+        var prefab = AssetBundleManager.Instance.GetAsset<GameObject>("prefab/character/knight/bravekinght", "BraveKnight_Model");
+        
+        deployEffectList.Add("BraveKnight", GameObject.Instantiate(prefab));
+
+        foreach(var obj in deployEffectList)
+        {
+            obj.Value.SetActive(false);
+        }
+    }
+
+    public void SetDeployEffectPos(string key, Vector3 pos)
+    {
+        deployEffectList[key].transform.position = pos;
+    }
+
+    public void SetDeployEffectActive(string key, bool param)
+    {
+        deployEffectList[key].SetActive(param);
     }
 }

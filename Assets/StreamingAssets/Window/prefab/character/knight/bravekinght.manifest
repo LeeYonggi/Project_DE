@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1950493318
+CRC: 4122459286
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 51428e1b9fb4deaca129215e1537b158
+    Hash: 36b1c548eafbda7f07e3d8c75b228c23
   TypeTreeHash:
     serializedVersion: 2
     Hash: 08f07f6a21c96fd631f9da0685ee8761
@@ -62,5 +62,7 @@ ClassTypes:
 SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/DefaultResources/prefab/character/knight/BraveKnight.prefab
+- Assets/DefaultResources/prefab/character/knight/BraveKnight_Model.prefab
 Dependencies:
+- E:/PROGRAMMING/PROJECT/UNITY/Project_DE/Assets/StreamingAssets/Window/materials/transparent
 - E:/PROGRAMMING/PROJECT/UNITY/Project_DE/Assets/StreamingAssets/Window/prefab/ui/character_hp
