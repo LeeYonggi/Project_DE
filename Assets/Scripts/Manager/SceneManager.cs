@@ -30,6 +30,7 @@ namespace Manager
         private BaseScene currentScene = null;
 
         bool isSceneChanging = false;
+        bool isCurrentSceneStart = false;
 
         public event Action<UnityScene.Scene, UnityScene.LoadSceneMode> sceneLoadEvent;
 
@@ -43,7 +44,7 @@ namespace Manager
 
             ChangeCurrentScene(SCENE_KIND.TITLE);
 
-            currentScene.Start();
+            CurrentSceneStart();
         }
 
         /// <summary>
@@ -65,25 +66,20 @@ namespace Manager
 
         public void FixedUpdate()
         {
-            try
-            {
+            if(isCurrentSceneStart)
                 currentScene.FixedUpdate();
-
-            }
-            catch
-            {
-                Debug.Log("ss");
-            }
         }
 
         public void LateUpdate()
         {
-            currentScene.LateUpdate();
+            if(isCurrentSceneStart)
+                currentScene.LateUpdate();
         }
 
         public void Update()
         {
-            currentScene.Update();
+            if(isCurrentSceneStart)
+                currentScene.Update();
         }
 
         public void ChangeScene(SCENE_KIND scene, bool isSceneChangeEffect = true)
@@ -118,7 +114,7 @@ namespace Manager
             {
                 yield return new WaitForEndOfFrame();
             }
-            currentScene.Start();
+            CurrentSceneStart();
 
             yield return null;
         }
@@ -137,7 +133,15 @@ namespace Manager
                     break;
             }
 
+            isCurrentSceneStart = false;
             currentScene.Load();
+        }
+
+        private void CurrentSceneStart()
+        {
+            currentScene.Start();
+
+            isCurrentSceneStart = true;
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class IngameUIForm : UIForm
 {
@@ -25,13 +26,12 @@ public class IngameUIForm : UIForm
 
         for (int i = 0; i < 4; i++)
         {
-            var tempObj = GameObject.Instantiate(char_ArrSlotPrefab, UiObject.transform);
-            var char_ArrSlot = tempObj.GetComponent<CharacterUI_ArrangementSlot>();
+            var charUISlot = CharacterUI_ArrangementSlot.Create(
+                       UiObject.transform, UiObject.GetComponent<RectTransform>(),
+                       new Vector2(-244 + 164 * i, 141), 
+                       new CharacterSlotData(null, null));
 
-            tempObj.GetComponent<RectTransform>().anchoredPosition = new Vector2(-244 + 164 * i, 141);
-            char_ArrSlot.UiFormRectTransform = UiObject.GetComponent<RectTransform>();
-
-            char_ArrSlots.Add(tempObj.GetComponent<CharacterUI_ArrangementSlot>());
+            char_ArrSlots.Add(charUISlot);
         }
     }
 

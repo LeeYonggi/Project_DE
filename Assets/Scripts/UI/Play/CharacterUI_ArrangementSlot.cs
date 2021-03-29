@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using DG.Tweening;
 
+
 public class CharacterUI_ArrangementSlot : BaseBehaviour
 {
     private EventTrigger eventTrigger = null;
@@ -15,6 +16,25 @@ public class CharacterUI_ArrangementSlot : BaseBehaviour
     private Vector2 initAnchoredPos = Vector2.zero;
 
     private RectTransform uiFormRectTransform = null;
+
+    private float placePointDistance = 160.0f;
+
+    private CharacterSlotData slotData = null;
+
+
+    public static CharacterUI_ArrangementSlot Create(Transform parent, RectTransform uiRectTransform, Vector2 anchoredPos, CharacterSlotData slotData)
+    {
+        GameObject char_ArrSlotPrefab = AssetBundleManager.Instance.GetAsset<GameObject>("prefab/ui/ingame", "Character_ArrangementSlot");
+
+        var tempObj = GameObject.Instantiate(char_ArrSlotPrefab, parent);
+        var char_ArrSlot = tempObj.GetComponent<CharacterUI_ArrangementSlot>();
+
+        tempObj.GetComponent<RectTransform>().anchoredPosition = anchoredPos;
+        char_ArrSlot.UiFormRectTransform = uiRectTransform;
+        char_ArrSlot.slotData = slotData;
+
+        return char_ArrSlot;
+    }
 
     public RectTransform UiFormRectTransform { get => uiFormRectTransform; set => uiFormRectTransform = value; }
 
@@ -52,6 +72,7 @@ public class CharacterUI_ArrangementSlot : BaseBehaviour
     void Start()
     {
         initAnchoredPos = rectTransform.anchoredPosition;
+
     }
 
     public override void BaseUpdate()
@@ -66,6 +87,7 @@ public class CharacterUI_ArrangementSlot : BaseBehaviour
 
         transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
         enterPoint = rectTransform.anchoredPosition;
+        transform.SetAsLastSibling();
 
         IngameScene.Instance.PlaceObjforCard(true);
     }
@@ -84,6 +106,25 @@ public class CharacterUI_ArrangementSlot : BaseBehaviour
             out mousePos);
 
         rectTransform.localPosition = mousePos;
+
+        // 드래그 시 UI가 작아지는 연출을 위한 수식
+        float increasedScreenRatio = (float)uiFormRectTransform.sizeDelta.y / (float)MainManager.Instance.FixSreenHeight;
+        float ratio = 1 - (rectTransform.anchoredPosition.y - initAnchoredPos.y) / (placePointDistance * increasedScreenRatio);
+
+        ratio = Mathf.Min(Mathf.Max(ratio, 0.3f), 1.0f);
+        transform.localScale = new Vector3(ratio, ratio, ratio);
+
+        // Raycast로 놓을 수 있는 곳인지 판단
+        RaycastHit[] raycastHit = IngameScene.Instance.CameraMousePointRaycast();
+
+        for(int i = 0; i < raycastHit.Length; i++)
+        {
+            if(raycastHit[i].transform.tag == "PlaceableCollider")
+            {
+                
+                Debug.Log("True");
+            }
+        }
     }
 
     private void SlotPointerUp(BaseEventData data)

@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3064399236
+CRC: 306578204
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: a9229f56721f1d98307e7e3e95192812
+    Hash: aff973e07f74ac30dff0e5e43941a2cc
   TypeTreeHash:
     serializedVersion: 2
-    Hash: aaf5f40d0213f0959ea34d4eb2bbb6f9
+    Hash: 7c03997282677996f1b5922e6a8f95e3
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -19,6 +19,8 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 48
   Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
 - Class: 212
   Script: {instanceID: 0}
 - Class: 213
@@ -26,4 +28,5 @@ ClassTypes:
 SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/DefaultResources/prefab/effect/play/UnplaceableArea.prefab
+- Assets/DefaultResources/prefab/effect/play/PlaceableCollider.prefab
 Dependencies: []
