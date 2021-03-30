@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class CharacterStatistics
 {
+    private string name = "Empty";
     private int hp = 100;
     private float speed = 8.0f;
     private int damage = 10;
@@ -15,8 +16,9 @@ public class CharacterStatistics
     public event Action notEnoughHpEvent;
 
 
-    public CharacterStatistics(int hp, float speed, int damage, float attackDistance)
+    public CharacterStatistics(string name, int hp, float speed, int damage, float attackDistance)
     {
+        this.name = name;
         this.hp = hp;
         this.speed = speed;
         this.damage = damage;
@@ -39,4 +41,5 @@ public class CharacterStatistics
     public float AttackDistance { get => attackDistance; set => attackDistance = value; }
     public float AttackSpeed { get => attackSpeed; set => attackSpeed = value; }
     public float DeathSpeed { get => deathSpeed; set => deathSpeed = value; }
+    public string Name { get => name; }
 }

@@ -123,12 +123,15 @@ public class CharacterUI_ArrangementSlot : BaseBehaviour
         {
             imageUI.SetActive(false);
 
-            IngameScene.Instance.SetDeployEffectActive("BraveKnight", true);
-            IngameScene.Instance.SetDeployEffectPos("BraveKnight", raycastHit.point);
+            IngameScene.Instance.SetDeployEffectActive(slotData.characterStatistics.Name, true);
+
+            Vector3 placePoint = IngameScene.Instance.GetPlacePoint(raycastHit.collider.gameObject);
+
+            IngameScene.Instance.SetDeployEffectPos(slotData.characterStatistics.Name, placePoint);
         }
         else
         {
-            IngameScene.Instance.SetDeployEffectActive("BraveKnight", false);
+            IngameScene.Instance.SetDeployEffectActive(slotData.characterStatistics.Name, false);
             imageUI.SetActive(true);
         }
     }
@@ -140,7 +143,20 @@ public class CharacterUI_ArrangementSlot : BaseBehaviour
         rectTransform.DOAnchorPos(initAnchoredPos, 0.4f).SetEase(Ease.InSine);
 
         IngameScene.Instance.PlaceObjforCard(false);
+
         imageUI.SetActive(true);
+
+        // Raycast로 놓을 수 있는 곳인지 판단
+        RaycastHit raycastHit = GetPlaceableColliderRayhit(out bool isHit);
+
+        if (isHit)
+        {
+            Vector3 placePoint = IngameScene.Instance.GetPlacePoint(raycastHit.collider.gameObject);
+
+            IngameScene.Instance.CreateCharacter(slotData, placePoint);
+        }
+
+        IngameScene.Instance.SetDeployEffectActive(slotData.characterStatistics.Name, false);
     }
 
     private RaycastHit GetPlaceableColliderRayhit(out bool isHit)
@@ -158,5 +174,4 @@ public class CharacterUI_ArrangementSlot : BaseBehaviour
         isHit = false;
         return default;
     }
-
 }

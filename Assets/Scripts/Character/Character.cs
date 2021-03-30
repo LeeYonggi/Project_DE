@@ -57,7 +57,7 @@ public class Character : MonoBehaviour
     {
         statistics = initStatistics;
 
-        model = transform.Find("Male Knight 01").gameObject;
+        model = transform.Find("BraveKnight_Model").gameObject;
 
         characterAnimator = model.GetComponent<Animator>();
         characterAnimator.SetFloat("moveMent", 0.01f);

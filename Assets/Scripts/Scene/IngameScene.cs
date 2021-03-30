@@ -7,14 +7,20 @@ using UnityEngine;
 public class IngameScene : Singleton<IngameScene>, BaseScene
 {
     // 배치불가지역 효과
-    GameObject unplaceableArea = null;
+    private GameObject unplaceableArea = null;
     // 배치가능지역 충돌처리
-    List<GameObject> placeColliderList = new List<GameObject>();
+    private List<GameObject> placeColliderList = new List<GameObject>();
+    // 배치가능지역 좌표
+    private List<Vector3> placePointList = new List<Vector3>();
 
     Camera ingameMainCamera = null;
 
     private Dictionary<string, GameObject> deployEffectList = new Dictionary<string, GameObject>();
+    private Dictionary<string, GameObject> fieldObjectPrefabs = new Dictionary<string, GameObject>();
+
     private List<GameObject> objectPredictionList = new List<GameObject>();
+
+    private List<GameObject> activeFieldObjects = new List<GameObject>();
 
     public void Load()
     {
@@ -37,6 +43,7 @@ public class IngameScene : Singleton<IngameScene>, BaseScene
     {
         UIManager.Instance.CreateUIForm("prefab/ui/ingame", "IngameUIForm");
 
+        // 배치관련 오브젝트
         GameObject unplaceableAreaPrefab = AssetBundleManager.Instance.GetAsset<GameObject>("prefab/effect/play", "UnplaceableArea");
         GameObject placeableColiiderPrefab = AssetBundleManager.Instance.GetAsset<GameObject>("prefab/effect/play", "PlaceableCollider");
 
@@ -46,11 +53,14 @@ public class IngameScene : Singleton<IngameScene>, BaseScene
         {
             placeColliderList.Add(GameObject.Instantiate(placeableColiiderPrefab));
             placeColliderList[i].transform.position = new Vector3(-6 + i * 6, 0.13f, -1.61f);
+            placePointList.Add(new Vector3(-6 + i * 6, 0.0f, -9.2f));
         }
 
         ingameMainCamera = GameObject.FindGameObjectsWithTag("MainCamera")[0].GetComponent<Camera>();
 
         unplaceableArea.SetActive(false);
+
+        fieldObjectPrefabs.Add("BraveKnight", AssetBundleManager.Instance.GetAsset<GameObject>("prefab/character/knight/bravekinght", "BraveKnight"));
 
         DeployEffectInit();
     }
@@ -103,6 +113,26 @@ public class IngameScene : Singleton<IngameScene>, BaseScene
         foreach(var obj in deployEffectList)
         {
             obj.Value.SetActive(false);
+
+            MeshRenderer[] meshRenderers = obj.Value.GetComponentsInChildren<MeshRenderer>();
+
+            for(int i = 0; i < meshRenderers.Length; i++)
+            {
+                string currentMatName = meshRenderers[i].sharedMaterial.name;
+                Material transparentMat = AssetBundleManager.Instance.GetAsset<Material>("materials/transparent", $"{currentMatName}_Transparent");
+
+                meshRenderers[i].sharedMaterial = transparentMat;
+            }
+
+            SkinnedMeshRenderer[] skinnedMeshRenderers = obj.Value.GetComponentsInChildren<SkinnedMeshRenderer>();
+
+            for(int i = 0; i < skinnedMeshRenderers.Length; i++)
+            {
+                string currentMatName = skinnedMeshRenderers[i].sharedMaterial.name;
+                Material transparentMat = AssetBundleManager.Instance.GetAsset<Material>("materials/transparent", $"{currentMatName}_Transparent");
+
+                skinnedMeshRenderers[i].sharedMaterial = transparentMat;
+            }
         }
     }
 
@@ -114,5 +144,26 @@ public class IngameScene : Singleton<IngameScene>, BaseScene
     public void SetDeployEffectActive(string key, bool param)
     {
         deployEffectList[key].SetActive(param);
+    }
+
+    public Vector3 GetPlacePoint(GameObject hitPlaceCollider)
+    {
+        for(int i = 0; i < placeColliderList.Count; i++)
+        {
+            if(placeColliderList[i] == hitPlaceCollider)
+            {
+                return placePointList[i];
+            }
+        }
+        return Vector3.zero;
+    }
+
+    public void CreateCharacter(CharacterSlotData characterSlotData, Vector3 createPos)
+    {
+        GameObject characterObject = GameObject.Instantiate(fieldObjectPrefabs[characterSlotData.characterStatistics.Name]);
+
+        characterObject.transform.position = createPos;
+
+        activeFieldObjects.Add(characterObject);
     }
 }

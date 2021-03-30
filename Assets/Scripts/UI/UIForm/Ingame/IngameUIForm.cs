@@ -29,7 +29,7 @@ public class IngameUIForm : UIForm
             var charUISlot = CharacterUI_ArrangementSlot.Create(
                        UiObject.transform, UiObject.GetComponent<RectTransform>(),
                        new Vector2(-244 + 164 * i, 141), 
-                       new CharacterSlotData(null, null));
+                       new CharacterSlotData(new CharacterStatistics("BraveKnight", 100, 6, 10, 2.0f)));
 
             char_ArrSlots.Add(charUISlot);
         }

@@ -7,13 +7,11 @@ using UnityEngine;
 
 public class CharacterSlotData
 {
-    public GameObject objectPrediction;
-    public GameObject characterPrefab;
+    public CharacterStatistics characterStatistics;
 
-    public CharacterSlotData(GameObject objectPrediction, GameObject characterPrefab)
+    public CharacterSlotData(CharacterStatistics characterStatistics)
     {
-        this.objectPrediction = objectPrediction;
-        this.characterPrefab = characterPrefab;
+        this.characterStatistics = characterStatistics;
     }
     public CharacterSlotData() { }
 }
