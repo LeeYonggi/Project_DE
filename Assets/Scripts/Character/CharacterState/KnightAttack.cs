@@ -45,7 +45,7 @@ public class KnightAttack : CharacterBaseState
         //}
 
         attackDelay = character.CharacterAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime;
-        if (attackDelay >= 0.7f && isAttack == false)
+        if (attackDelay >= 0.5f && isAttack == false)
         {
             character.TargetCharacter.ComeUnderAttack(character.Statistics);
             isAttack = true;

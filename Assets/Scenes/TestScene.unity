@@ -839,6 +839,101 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 301901631}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &314551860
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 505605676089031687, guid: ae1fa12a17a69cf4ebaae9f7b4e490ff,
+        type: 3}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'RigPelvis'\n\tTransform 'RigSpine2'\n\tTransform
+        'RigRCollarbone'\n\tTransform 'RigLFoot'\n\tTransform 'RigRUpperarm'\n\tTransform
+        'RigSpine3'\n\tTransform 'RigSpine1'\n\tTransform 'RigPelvis'\n\tTransform
+        'RigRibcage'\n\tTransform 'RigHead'\n\tand more ...\n\tFrom animation clip
+        'mixamo.com'"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4744305564665193911, guid: ae1fa12a17a69cf4ebaae9f7b4e490ff,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4744305564665193911, guid: ae1fa12a17a69cf4ebaae9f7b4e490ff,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424407187518592521, guid: ae1fa12a17a69cf4ebaae9f7b4e490ff,
+        type: 3}
+      propertyPath: moveVector.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424407187518592522, guid: ae1fa12a17a69cf4ebaae9f7b4e490ff,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424407187518592522, guid: ae1fa12a17a69cf4ebaae9f7b4e490ff,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424407187518592522, guid: ae1fa12a17a69cf4ebaae9f7b4e490ff,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424407187518592522, guid: ae1fa12a17a69cf4ebaae9f7b4e490ff,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 15.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424407187518592522, guid: ae1fa12a17a69cf4ebaae9f7b4e490ff,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424407187518592522, guid: ae1fa12a17a69cf4ebaae9f7b4e490ff,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424407187518592522, guid: ae1fa12a17a69cf4ebaae9f7b4e490ff,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424407187518592522, guid: ae1fa12a17a69cf4ebaae9f7b4e490ff,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424407187518592522, guid: ae1fa12a17a69cf4ebaae9f7b4e490ff,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424407187518592522, guid: ae1fa12a17a69cf4ebaae9f7b4e490ff,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424407187518592522, guid: ae1fa12a17a69cf4ebaae9f7b4e490ff,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424407187518592523, guid: ae1fa12a17a69cf4ebaae9f7b4e490ff,
+        type: 3}
+      propertyPath: m_Name
+      value: BraveKnight (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ae1fa12a17a69cf4ebaae9f7b4e490ff, type: 3}
 --- !u!1001 &361610031
 PrefabInstance:
   m_ObjectHideFlags: 0

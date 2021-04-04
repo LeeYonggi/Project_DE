@@ -14,6 +14,7 @@ public class CharacterStatistics
     private float deathSpeed = 1.0f;
 
     public event Action notEnoughHpEvent;
+    public event Action<float> changeHpEvent;
 
 
     public CharacterStatistics(string name, int hp, float speed, int damage, float attackDistance)
@@ -31,6 +32,8 @@ public class CharacterStatistics
         set
         {
             hp = value;
+
+            changeHpEvent?.Invoke(hp);
             if (hp < 1)
                 notEnoughHpEvent?.Invoke();
         }

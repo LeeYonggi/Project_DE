@@ -26,6 +26,7 @@ public class Character : MonoBehaviour
     protected Dictionary<Behaviour_State, CharacterBaseState> stateDic = new Dictionary<Behaviour_State, CharacterBaseState>();
 
     private CharacterStatistics statistics = null;
+    private UnitHpBar unitHpBar = null;
     private Character targetCharacter = null;
 
     private Behaviour_State current_State = Behaviour_State.START_STATE;
@@ -44,11 +45,13 @@ public class Character : MonoBehaviour
     private void OnEnable()
     {
         //Statistics.notEnoughHpEvent += DeathCharacter;
+        //Statistics.changeHpEvent += unitHpBar.ChangeCurHp;
     }
 
     private void OnDisable()
     {
         //Statistics.notEnoughHpEvent -= DeathCharacter;
+        //Statistics.changeHpEvent -= unitHpBar.ChangeCurHp;
     }
 
 
@@ -56,6 +59,10 @@ public class Character : MonoBehaviour
     protected void CharacterStart(CharacterStatistics initStatistics)
     {
         statistics = initStatistics;
+        unitHpBar = GetComponentInChildren<UnitHpBar>();
+        unitHpBar.InitHpBar(this);
+
+        statistics.changeHpEvent += unitHpBar.ChangeCurHp;
 
         model = transform.Find("BraveKnight_Model").gameObject;
 
