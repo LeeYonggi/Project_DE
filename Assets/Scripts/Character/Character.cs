@@ -64,7 +64,7 @@ public class Character : MonoBehaviour
 
         statistics.changeHpEvent += unitHpBar.ChangeCurHp;
 
-        model = transform.Find("BraveKnight_Model").gameObject;
+        model = transform.Find(initStatistics.Name + "_Model").gameObject;
 
         characterAnimator = model.GetComponent<Animator>();
         characterAnimator.SetFloat("moveMent", 0.01f);
@@ -73,12 +73,14 @@ public class Character : MonoBehaviour
 
         stateDic[Behaviour_State.START_STATE] = new BasicStart();
         stateDic[Behaviour_State.IDLE_STATE] = new BasicIdle();
-        stateDic[Behaviour_State.MOVE_STATE] = new KnightMove();
-        stateDic[Behaviour_State.ATTACK_STATE] = new KnightAttack();
         stateDic[Behaviour_State.DEATH_STATE] = new BasicDeath();
+        CharacterAnimation();
 
         stateDic[Behaviour_State.START_STATE].Start(this);
     }
+
+    protected virtual void CharacterAnimation() { }
+
 
     // Update is called once per frame
     void Update()
