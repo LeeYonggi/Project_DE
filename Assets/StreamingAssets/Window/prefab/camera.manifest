@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3870196769
+CRC: 1662988017
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 547dc96ba58633879e53582dd1cd5b48
+    Hash: d32de4f1a1778ad9735a57b7a51bb774
   TypeTreeHash:
     serializedVersion: 2
     Hash: e23326a2efd63b4d221c91234232572b
@@ -21,5 +21,5 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/DefaultResources/prefab/camera/UICamera.prefab
+- Assets/DefaultResources/Prefab/camera/uicamera.prefab
 Dependencies: []

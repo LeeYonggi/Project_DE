@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 4130674473
+CRC: 3452191382
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: c1a418fd9f3dcb8d9407c8885d2bde04
+    Hash: 5ef47732a9a3c5c49bfb9cd39d5661d7
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 6e480179d516339c389ad7698ba07d9f
+    Hash: 956ceabca6ba60ffcb3e1685c865e746
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -14,9 +14,11 @@ ClassTypes:
 - Class: 28
   Script: {instanceID: 0}
 - Class: 114
+  Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 213
@@ -27,7 +29,7 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/DefaultResources/prefab/ui/Character_Hp.prefab
+- Assets/DefaultResources/Prefab/ui/character_hp.prefab
 - Assets/GUI Kit Casual Game/ResourcesData/Sprite/Play/play_character_hp_bar_red.png
 - Assets/GUI Kit Casual Game/ResourcesData/Sprite/Play/play_character_hp_bar_line.png
 - Assets/GUI Kit Casual Game/ResourcesData/Sprite/Play/play_character_hp_bar_front.png

@@ -36,7 +36,9 @@ public class IngameScene : Singleton<IngameScene>, BaseScene
 
         AssetBundleManager.Instance.AssetBundleLoad("prefab/effect/play", new AssetBundleData(false));
 
-        AssetBundleManager.Instance.AssetBundleLoad("prefab/character/knight/bravekinght", new AssetBundleData(false));
+        AssetBundleManager.Instance.AssetBundleLoad("prefab/ui/character_hp", new AssetBundleData(false));
+
+        AssetBundleManager.Instance.AssetBundleLoad("prefab/character/knight/braveknight", new AssetBundleData(false));
     }
 
     public void Start()
@@ -60,7 +62,7 @@ public class IngameScene : Singleton<IngameScene>, BaseScene
 
         unplaceableArea.SetActive(false);
 
-        fieldObjectPrefabs.Add("BraveKnight", AssetBundleManager.Instance.GetAsset<GameObject>("prefab/character/knight/bravekinght", "BraveKnight"));
+        fieldObjectPrefabs.Add("BraveKnight", AssetBundleManager.Instance.GetAsset<GameObject>("prefab/character/knight/braveknight", "BraveKnight"));
 
         DeployEffectInit();
     }
@@ -106,7 +108,7 @@ public class IngameScene : Singleton<IngameScene>, BaseScene
     /// </summary>
     private void DeployEffectInit()
     {
-        var prefab = AssetBundleManager.Instance.GetAsset<GameObject>("prefab/character/knight/bravekinght", "BraveKnight_Model");
+        var prefab = AssetBundleManager.Instance.GetAsset<GameObject>("prefab/character/knight/braveknight", "BraveKnight_Model");
         
         deployEffectList.Add("BraveKnight", GameObject.Instantiate(prefab));
 

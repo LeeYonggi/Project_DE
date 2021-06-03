@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1146636480
+CRC: 2350767858
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 51428e1b9fb4deaca129215e1537b158
+    Hash: c7e54b46b9318c314342354740a87bfe
   TypeTreeHash:
     serializedVersion: 2
-    Hash: db16e2cd49248753b8b7c5471f4f77bc
+    Hash: 832546ec662475fe2bbaf023c5db90fe
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -36,15 +36,19 @@ ClassTypes:
 - Class: 95
   Script: {instanceID: 0}
 - Class: 114
-  Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: cb4f5904691c33b49b2303efd2a60a79, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 8aaa03add68895647b63c40f56bccd72, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 136
@@ -61,6 +65,8 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/DefaultResources/prefab/character/knight/BraveKnight.prefab
+- Assets/DefaultResources/Prefab/character/knight/braveknight.prefab
+- Assets/DefaultResources/Prefab/character/knight/BraveKnight_Model.prefab
 Dependencies:
-- E:/PROGRAMMING/PROJECT/UNIY/Project_DE/Assets/StreamingAssets/Window/prefab/ui/character_hp
+- E:/PROGRAMMING/PROJECT/UNITY/Project_DE/Assets/StreamingAssets/Window/materials/transparent
+- E:/PROGRAMMING/PROJECT/UNITY/Project_DE/Assets/StreamingAssets/Window/prefab/ui/character_hp

@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3175272442
+CRC: 1503916577
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 1ce327aa96d8b41fc61bfcf0d0efcca2
+    Hash: 8975f1fa2fdbbde9287e3e438c3d57a2
   TypeTreeHash:
     serializedVersion: 2
     Hash: 6c3c4b8f2bc73c75f792ebdf5af7ad8d
@@ -31,6 +31,6 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/DefaultResources/prefab/background/Environment1.prefab
+- Assets/DefaultResources/Prefab/Background/Environment1.prefab
 Dependencies:
 - E:/PROGRAMMING/PROJECT/UNITY/Project_DE/Assets/StreamingAssets/Window/prefab/background/background_public

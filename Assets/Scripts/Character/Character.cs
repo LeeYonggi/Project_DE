@@ -62,8 +62,6 @@ public class Character : MonoBehaviour
         unitHpBar = GetComponentInChildren<UnitHpBar>();
         unitHpBar.InitHpBar(this);
 
-        statistics.changeHpEvent += unitHpBar.ChangeCurHp;
-
         model = transform.Find(initStatistics.Name + "_Model").gameObject;
 
         characterAnimator = model.GetComponent<Animator>();
@@ -73,6 +71,8 @@ public class Character : MonoBehaviour
 
         stateDic[Behaviour_State.START_STATE] = new BasicStart();
         stateDic[Behaviour_State.IDLE_STATE] = new BasicIdle();
+        stateDic[Behaviour_State.MOVE_STATE] = new KnightMove();
+        stateDic[Behaviour_State.ATTACK_STATE] = new KnightAttack();
         stateDic[Behaviour_State.DEATH_STATE] = new BasicDeath();
         CharacterAnimation();
 
@@ -80,8 +80,6 @@ public class Character : MonoBehaviour
     }
 
     protected virtual void CharacterAnimation() { }
-
-
     // Update is called once per frame
     void Update()
     {
@@ -99,9 +97,7 @@ public class Character : MonoBehaviour
 #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.A))
         {
-            statistics.Hp -= 100;
-            if (statistics.Hp <= 0)
-                DeathCharacter();
+            ComeUnderAttack(new CharacterStatistics("temp", 0, 0, 100, 0));
             Debug.Log("!");
         }
 #endif
@@ -183,6 +179,10 @@ public class Character : MonoBehaviour
     public void ComeUnderAttack(CharacterStatistics attackingEnemyStat)
     {
         statistics.Hp = statistics.Hp - attackingEnemyStat.Damage;
+        unitHpBar.ChangeCurHp(statistics.Hp);
+
+        if (statistics.Hp <= 0)
+            DeathCharacter();
     }
 
     public void DestroyCharacter()

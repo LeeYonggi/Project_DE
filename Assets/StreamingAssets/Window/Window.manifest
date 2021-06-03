@@ -1,35 +1,35 @@
 ManifestFileVersion: 0
-CRC: 4153374342
+CRC: 243740662
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
-      Name: prefab/background/environment1
-      Dependencies:
-        Dependency_0: prefab/background/background_public
+      Name: materials/transparent
+      Dependencies: {}
     Info_1:
-      Name: prefab/background/background_public
-      Dependencies: {}
-    Info_2:
-      Name: prefab/character/knight/bravekinght
-      Dependencies:
-        Dependency_0: prefab/ui/character_hp
-        Dependency_1: materials/transparent
-    Info_3:
-      Name: prefab/ui/character_hp
-      Dependencies: {}
-    Info_4:
-      Name: prefab/camera
-      Dependencies: {}
-    Info_5:
       Name: scene/ingame
       Dependencies:
         Dependency_0: prefab/camera
-    Info_6:
+    Info_2:
+      Name: prefab/ui/character_hp
+      Dependencies: {}
+    Info_3:
+      Name: prefab/background/environment1
+      Dependencies:
+        Dependency_0: prefab/background/background_public
+    Info_4:
       Name: prefab/ui/ingame
       Dependencies: {}
-    Info_7:
+    Info_5:
       Name: prefab/effect/play
       Dependencies: {}
-    Info_8:
-      Name: materials/transparent
+    Info_6:
+      Name: prefab/background/background_public
       Dependencies: {}
+    Info_7:
+      Name: prefab/camera
+      Dependencies: {}
+    Info_8:
+      Name: prefab/character/knight/braveknight
+      Dependencies:
+        Dependency_0: materials/transparent
+        Dependency_1: prefab/ui/character_hp
